@@ -1,0 +1,35 @@
+generator cliente {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Usuario {
+    id              Int     @id @default(autoincrement())
+    nombre          String
+    password        String
+    participantes   Participante[]
+}
+
+model Grupo {
+    id                  Int     @id @default(autoincrement())
+    nombre              String
+    fechaIntercambio    DateTime
+    montoSugerido       Float
+    participantes       Participante[]
+    sorteado            Boolean     @default(false)
+}
+
+model Participante {
+  id               Int     @id @default(autoincrement())
+  usuarioId        Int
+  grupoId          Int
+  amigoAsignadoId  Int?    // nulo hasta que se haga el sorteo
+  usuario          Usuario @relation(fields: [usuarioId], references: [id])
+  grupo            Grupo   @relation(fields: [grupoId], references: [id])
+
+  @@unique([usuarioId, grupoId])
+}

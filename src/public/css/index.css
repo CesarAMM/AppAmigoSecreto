@@ -1,0 +1,97 @@
+
+  :root{
+    --border-thickness: clamp(10px, 2.6vw, 28px); /* ajustable */
+    --red: #C62828;
+    --green: #2E7D32;
+    --white: #FFFFFF;
+    --bg: #fff; /* fondo interior */
+    --radius: 16px;
+  }
+
+
+@font-face {
+  font-family: 'GreatVibes';
+  src: url('/font/GreatVibes-Regular.ttf') format('truetype');
+}
+
+.text-1{
+  font-family: 'GreatVibes';
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.text-2{
+  font-family: 'GreatVibes';
+  font-size: 250%;
+}
+
+.contenedor-principal{
+  min-height:100vh;
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: clamp(18px,4vw,44px); /* espacio interno */
+  box-sizing:border-box;
+  overflow:hidden;
+
+  background-color: #055d4426;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;  /* Añadido para referencia de posición absoluta */
+  z-index: 99;
+}
+
+/* Pseudo elemento que actúa como marco */
+.contenedor-principal::before{
+  content: "";
+  position: absolute;
+  inset: 0; /* ocupa todo el contenedor */
+  padding: var(--border-thickness); /* ancho del marco */
+  box-sizing: border-box;
+  pointer-events: none; /* no interfiere con clicks */
+  background:
+    linear-gradient(transparent, transparent), /* capa interior transparente */
+    repeating-linear-gradient(45deg, var(--red) 0 16px, var(--white) 16px 32px, var(--green) 32px 48px);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  border-radius: calc(var(--radius) + 2px);
+}
+
+.sub-contenedor {
+  background-color: white;
+  border: 4px solid red;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 80vw;   /* 80% del ancho visible */
+  max-width: 600px; /* no más grande que 600px */
+  padding: 5vw;  /* padding proporcional al tamaño de la pantalla */
+  text-align: center;
+  position: relative;  /* Para mantener el contexto de apilamiento */
+}
+
+.burbuja-santa {
+  position: absolute;
+  top: -50px;  /* Ajustado para la imagen más grande */
+  left: -50px;  /* Ajustado para la imagen más grande */
+  z-index: 1;  /* Para asegurar que esté por encima del borde */
+}
+
+.burbuja-santa img {
+  width: 150px;  /* Aumentado de 100px a 150px */
+  height: auto;  /* Mantiene la proporción */
+}
+
+#particles-js{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
