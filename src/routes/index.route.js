@@ -31,7 +31,7 @@ class IndexRouter {
             { usuario: 'mama_fivia',                        nombre: 'Mama Fivia', amigosecreto: 'Duglas' },
             { usuario: 'papa_fito',                         nombre: 'Papa Fito', amigosecreto: 'Daniela Navas' },
             { usuario: 'LaSeca',                            nombre: 'Tía Zully', amigosecreto: 'Mariana Renne' },
-            { usuario: 'LaNegra',                           nombre: 'Silvia Barraza Monroy', amigosecreto: 'Hugo Andre' },
+            { usuario: 'LaNegra',                           nombre: 'Silvia Monroy Barraza', amigosecreto: 'Hugo Andre' },
             { usuario: 'TioWaldemarMonroy',                 nombre: 'Baldemar Monroy', amigosecreto: 'Julio Cesar' },
             { usuario: 'LaMiniNegra',                       nombre: 'Barbara Maria Osorio', amigosecreto: 'Tia O' },
             { usuario: 'jcmazariegos2000',                  nombre: 'Julio Cesar Mazariegos', amigosecreto: 'Tia Zully' },
